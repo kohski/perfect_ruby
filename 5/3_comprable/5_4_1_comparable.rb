@@ -17,4 +17,4 @@ long = Ruler.new(100)
 
 short < long # => true
 short > long # => false
-short = long # => #<Ruler:0x00007fe5fb073a30 @length=100>
+short == long # => false

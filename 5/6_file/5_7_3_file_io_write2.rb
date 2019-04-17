@@ -1,0 +1,1 @@
+File.write('./model/write_method.txt',"hello \nhello \nhello ")
