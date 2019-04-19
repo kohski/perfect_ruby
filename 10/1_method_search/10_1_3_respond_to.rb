@@ -22,3 +22,4 @@ have_method.respond_to? :has_method_private # => false
 have_method.respond_to? :has_method_private,true # => true
 have_method.respond_to? :has_method_private_second,true # => false
 not_have_method.respond_to? :has_method # => false
+
