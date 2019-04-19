@@ -1,0 +1,24 @@
+class KeywordArgs
+  def nomal_mthod_allow_keyword_args(first_arg, second_arg, third_arg)
+    [first_arg, second_arg, third_arg]
+  end
+
+  private
+
+  def method_missing(name, *args)
+    method_name = name.to_s + '_allow_keyword_args'
+    super unless respond_to? method_name
+
+    args_hash = args.first
+
+    new_args = self.method(method_name).parameters.map do |(req, arg_name)| # !> assigned but unused variable - req
+      args_hash[arg_name]
+    end
+    __send__ method_name, *new_args
+  end
+end
+
+KeywordArgs.new.normal_method(third_arg: 1, first_arg:2, second_arg: 3) # => 
+
+# ~> -:10:in `method_missing': undefined method `normal_method' for #<KeywordArgs:0x00007f88688641b8> (NoMethodError)
+# ~> 	from -:21:in `<main>'
