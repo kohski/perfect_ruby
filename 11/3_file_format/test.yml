@@ -1,0 +1,7 @@
+---
+remote:
+  host: example.com
+  port: 22
+  ssh: true
+  username: user
+  password: 
